@@ -68,7 +68,7 @@ pushd $TEMP_DIR >/dev/null
 wget -qL https://github.com/whiskerz007/proxmox_portainer_lxc/raw/master/setup.sh
 
 # Detect modules and automatically load at boot
-load_module aufs
+# load_module aufs
 load_module overlay
 
 # Select storage location
@@ -147,7 +147,7 @@ pct create $CTID $TEMPLATE_STRING -arch $ARCH -features nesting=1 \
 # Modify LXC permissions to support Docker
 LXC_CONFIG=/etc/pve/lxc/${CTID}.conf
 cat <<EOF >> $LXC_CONFIG
-lxc.cgroup.devices.allow: a
+lxc.cgroup0.devices.allow: a
 lxc.cap.drop:
 EOF
 
