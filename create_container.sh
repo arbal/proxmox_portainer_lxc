@@ -147,7 +147,7 @@ pct create $CTID $TEMPLATE_STRING -arch $ARCH -features nesting=1 \
 # Modify LXC permissions to support Docker
 LXC_CONFIG=/etc/pve/lxc/${CTID}.conf
 cat <<EOF >> $LXC_CONFIG
-lxc.cgroup0.devices.allow: a
+lxc.cgroup2.devices.allow: a
 lxc.cap.drop:
 EOF
 
